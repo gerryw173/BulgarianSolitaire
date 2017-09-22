@@ -34,21 +34,18 @@ public class BulgarianSolitaire
 		for (int i = board.size(); i > 0; i--)
 		{
 			int a = board.get(i);
+			a--;
+			board.set(i,a);
+			leftSum++;
 
 			if(a == 0)
 			{
 				board.remove(i);
 			}
-
-			else
-			{
-				a --;
-				board.set(i,a);
-				leftSum++;
-			}
 		}
 
 		board.add(leftSum); // adds the cards left
+
 	}
 
 	/**
@@ -76,6 +73,8 @@ public class BulgarianSolitaire
 				}
 			}
 		}
+
+		return true;
 	}
 	
 	public String toString()
