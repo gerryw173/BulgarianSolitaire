@@ -16,7 +16,11 @@ public class BulgarianSolitaire
 			board.add(x);
 		}
 	}
-	
+
+	/**
+	 * Sets the parameter as an arraylist of integers
+	 * @param board
+	 */
 	public BulgarianSolitaire(ArrayList<Integer> board)
 	{
 		this.board = board;
@@ -29,22 +33,22 @@ public class BulgarianSolitaire
 	 */
 	public void move()
 	{
-		int leftSum = 0;
+		int sum = 0; // sum of the all the cards removed
 
-		for (int i = board.size(); i > 0; i--)
+		for (int i = board.size() - 1; i >= 0; i--)
 		{
 			int a = board.get(i);
-			a--;
-			board.set(i,a);
-			leftSum++;
+			a--; // removes card from the integer
+			board.set(i,a); //replaces current integer with a - 1
+			sum++;
 
-			if(a == 0)
+			if(a == 0)  // checks if an integer is zero and then removes it from the arraylist
 			{
 				board.remove(i);
 			}
 		}
 
-		board.add(leftSum); // adds the cards left
+		board.add(sum); // adds int that is equal to the cards left
 
 	}
 
@@ -54,29 +58,28 @@ public class BulgarianSolitaire
      */
 	public boolean gameOver()
 	{
-		boolean[] checks = new boolean[8];
+		int[] answer = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
 		if(board.size() == 9)
 		{
-			for (int i = 0; i < 9; i++)
+			for (int i = 0; i < answer.length; i++)
 			{
-				if(board.get(i) == i)
-				{
-					checks[i] = true;
-				}
-			}
-
-			for (int i = 0; i < checks.length; i++)
-			{
-				if(checks[i] == false)
+				if (!board.get(i).equals(answer[i])) // if the board's int at index of i is not equal to answer's int at i
 				{
 					return false;
 				}
 			}
+
+			return true; // game is over if the board is equal to answer
 		}
 
-		return true;
+		return false;
 	}
-	
+
+	/**
+	 * System out prints the whole arraylist
+	 * @return
+	 */
 	public String toString()
 	{
 		String str = "[";
