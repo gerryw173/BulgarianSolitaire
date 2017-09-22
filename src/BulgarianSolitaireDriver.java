@@ -9,8 +9,8 @@ public class BulgarianSolitaireDriver
 		for(int x : temp)
 			board.add(x);
 		
-		BulgarianSolitaire game = new BulgarianSolitaire(board);
-		//BulgarianSolitaire game = new BulgarianSolitaire();
+		//BulgarianSolitaire game = new BulgarianSolitaire(board);
+		BulgarianSolitaire game = new BulgarianSolitaire();
 		
 		System.out.println(game);
 		

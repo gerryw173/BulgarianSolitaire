@@ -7,12 +7,13 @@ public class BulgarianSolitaire
 	
 	public BulgarianSolitaire()
 	{
+		board = new ArrayList<Integer>();
 		Random randy = new Random();
-		int remaining = 45; // cards in pile
-		while(remaining > 0)
+		int cards = 45; // cards in pile
+		while(cards > 0)
 		{
-			int x = randy.nextInt(remaining) + 1;
-			remaining -= x;
+			int x = randy.nextInt(cards) + 1;
+			cards -= x;
 			board.add(x);
 		}
 	}
@@ -82,12 +83,12 @@ public class BulgarianSolitaire
 	 */
 	public String toString()
 	{
-		String str = "[";
+		String output = "[";
 		for (int i = 0; i < board.size(); i++)
 		{
-			str += board.get(i) + ", ";
+			output += board.get(i) + ", ";
 		}
 
-		return str.substring(0,str.length() - 2) + "]";
+		return output.substring(0,output.length() - 2) + "]"; // returns a output as a substring with the comma and space removed
 	}
 }
