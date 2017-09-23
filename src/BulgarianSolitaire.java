@@ -59,19 +59,19 @@ public class BulgarianSolitaire
      */
 	public boolean gameOver()
 	{
-		int[] answer = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int[] correctList = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-		if(board.size() == 9)
+		if(board.size() == 9) // checks if the arraylist size is 9 so it immediately returns false if it is not
 		{
-			for (int i = 0; i < answer.length; i++)
+			for (int i = 0; i < correctList.length; i++)
 			{
-				if (!board.get(i).equals(answer[i])) // if the board's int at index of i is not equal to answer's int at i
+				if (!board.get(i).equals(correctList[i])) // if the board's int at index of i is not equal to correctList's int at i
 				{
 					return false;
 				}
 			}
 
-			return true; // game is over if the board is equal to answer
+			return true; // game is over if the board is equal to correctList
 		}
 
 		return false;
